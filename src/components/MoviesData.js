@@ -41,7 +41,7 @@ function MoviesData({ data }) {
                 </button>
                 {data.page}
                 <button onClick={() => {
-                    if (data.page <= data.total_pages) {
+                    if (data.page < data.total_pages) {
                         fetchMovies(obj[pathName], data.page + 1)
                     }
                 }}>
