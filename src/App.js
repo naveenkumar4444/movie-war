@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Route, Routes } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+
+// import Home from "./pages/Home";
+import Popular from "./pages/Popular";
+import TopRated from "./pages/TopRated";
+import UpComing from "./pages/UpComing";
+import Details from "./pages/Details";
+import Search from "./pages/Search";
+
+export class App extends Component {
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <Routes>
+          {/* <Route path="/" exact element={<Home />} /> */}
+          <Route path="/" exact element={<Popular />} />
+          <Route path="/details/:id" exact element={<Details />} />
+          <Route path="/search/:keyword" exact element={<Search />} />
+          <Route path="/toprated" exact element={<TopRated />} />
+          <Route path="/upcoming" exact element={<UpComing />} />
+        </Routes>
+      </div>
+    );
+  }
 }
 
 export default App;
